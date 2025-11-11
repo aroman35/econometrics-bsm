@@ -132,9 +132,8 @@ $$
 7. **Нелинейное взаимодействие глубины и срока**
 
 $$
-ttm\_x\_abs\_log\_moneyness = T \cdot \left|\ln\left(\frac{S_{\text{ref}}}{K}\right)\right|.
+ttm\_x\_abs\_log\_moneyness = T \cdot \left| \ln \left( \frac{S_{\text{ref}}}{K} \right) \right|.
 $$
-
 8. **Dummy-переменная типа опциона**
 
 - `is_call = 1` для call-опционов,
@@ -189,14 +188,14 @@ $$
 Основная модель:
 
 $$
-bsm\_error\_log_i = \beta_0 +
-\beta_1 \cdot log\_moneyness\_z_i +
-\beta_2 \cdot time\_to\_maturity\_years\_z_i +
-\beta_3 \cdot iv\_rv\_gap\_z_i +
-\beta_4 \cdot log\_rel\_bid\_ask\_spread\_z_i +
-\beta_5 \cdot oi\_rel\_z_i +
-\beta_6 \cdot ttm\_x\_abs\_log\_moneyness\_z_i +
-\beta_7 \cdot is\_call_i + \varepsilon_i.
+bsm\_error\_log_{i} = \beta_{0} +
+\beta_{1} \cdot log\_moneyness\_{z,i} +
+\beta_{2} \cdot time\_to\_maturity\_years\_{z,i} +
+\beta_{3} \cdot iv\_rv\_gap\_{z,i} +
+\beta_{4} \cdot log\_rel\_bid\_ask\_spread\_{z,i} +
+\beta_{5} \cdot oi\_rel\_{z,i} +
+\beta_{6} \cdot ttm\_x\_abs\_log\_moneyness\_{z,i} +
+\beta_{7} \cdot is\_call_{i} + \varepsilon_{i}.
 $$
 
 Где:
