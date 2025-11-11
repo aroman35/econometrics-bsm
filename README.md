@@ -108,7 +108,7 @@ $$oi\_rel=\frac{OI_i}{\max_j OI_j}$$
 
 7. **Нелинейное взаимодействие глубины и срока**
 
-$$ttm\_x\_abs\_log\_moneyness=T\cdot\left|\ln\left(\frac{S_{ref}}{K}\right)\right|$$
+$$ttm\_ x\_ abs\_ log\_ moneyness=T\cdot\left|\ln\left(\frac{S_ {ref}}{K}\right)\right|$$
 
 8. **Dummy-переменная типа опциона**  
 `is_call = 1` для call-опционов, `0` — для put-опционов.
