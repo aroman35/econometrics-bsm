@@ -108,7 +108,7 @@ $$oi\_rel=\frac{OI_i}{\max_j OI_j}$$
 
 7. **Нелинейное взаимодействие глубины и срока**
 
-$$ttm\_x\_abs\_log\_moneyness=T\cdot\left|\ln\!\left(\frac{S_{\text{ref}}}{K}\right)\right|$$
+$$\text{ttm\_x\_abs\_log\_moneyness}=T\cdot\left|\ln\left(\frac{S_{\text{ref}}}{K}\right)\right|$$
 
 8. **Dummy-переменная типа опциона**  
 `is_call = 1` для call-опционов, `0` — для put-опционов.
@@ -133,7 +133,9 @@ $$ttm\_x\_abs\_log\_moneyness=T\cdot\left|\ln\!\left(\frac{S_{\text{ref}}}{K}\ri
 
 ### 6.1. Спецификация
 
-$$bsm\_error\_log_{i}=\beta_{0}+\beta_{1}\,log\_moneyness_{z,i}+\beta_{2}\,time\_to\_maturity\_years_{z,i}+\beta_{3}\,iv\_rv\_gap_{z,i}+\beta_{4}\,log\_rel\_bid\_ask\_spread_{z,i}+\beta_{5}\,oi\_rel_{z,i}+\beta_{6}\,ttm\_x\_abs\_log\_moneyness_{z,i}+\beta_{7}\,is\_call_{i}+\varepsilon_{i}$$
+$$
+\text{bsm\_error\_log}_{i}=\beta_{0}+\beta_{1}\,\text{log\_moneyness}_{z,i}+\beta_{2}\,\text{time\_to\_maturity\_years}_{z,i}+\beta_{3}\,\text{iv\_rv\_gap}_{z,i}+\beta_{4}\,\text{log\_rel\_bid\_ask\_spread}_{z,i}+\beta_{5}\,\text{oi\_rel}_{z,i}+\beta_{6}\,\text{ttm\_x\_abs\_log\_moneyness}_{z,i}+\beta_{7}\,\text{is\_call}_{i}+\varepsilon_{i}
+$$
 
 Где:
 - непрерывные факторы стандартизированы (z-score);  
