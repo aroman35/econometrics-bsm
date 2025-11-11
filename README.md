@@ -141,7 +141,15 @@ $$
 ### 6.1. Спецификация
 
 $$
-bsm\_error\_log_{i} = \beta_{0} +\beta_{1} log\_moneyness_{z,i} + \beta_{2} time\_to\_maturity\_years_{z,i} + \beta_{3} iv\_rv\_gap_{z,i} + \beta_{4} log\_rel\_bid\_ask\_spread_{z,i} + \beta_{5} oi\_rel_{z,i} + \beta_{6} ttm\_x\_abs\_log\_moneyness_{z,i} + \beta_{7} is\_call_{i} + \varepsilon_{i}
+bsm\_error\_log_{i} = \beta_{0}
++ \beta_{1} log\_moneyness_{z,i}
++ \beta_{2} time\_to\_maturity\_years_{z,i}
++ \beta_{3} iv\_rv\_gap_{z,i}
++ \beta_{4} log\_rel\_bid\_ask\_spread_{z,i}
++ \beta_{5} oi\_rel_{z,i}
++ \beta_{6} ttm\_x\_abs\_log\_moneyness_{z,i}
++ \beta_{7} is\_call_{i}
++ \varepsilon_{i}
 $$
 
 Где:
@@ -180,3 +188,13 @@ $$
 4. Bakshi, G., Kapadia, N., & Madan, D. (2003). *Stock Return Characteristics, Skew Laws, and the Differential Pricing of Individual Equity Options.* Review of Financial Studies, 16(1), 101–143.  
 5. Christensen, B. J., & Prabhala, N. R. (1998). *The Relation between Implied and Realized Volatility.* Journal of Financial Economics, 50(2), 125–150.
 
+---
+
+## 10. Лицензия и использование
+
+Данный материал подготовлен **в рамках учебного проекта по эконометрике**.  
+Все данные и вычисления использованы исключительно **в образовательных целях**.  
+Запрещено коммерческое использование, перепродажа или публикация от имени третьих лиц.  
+При цитировании или использовании отдельных фрагментов работы обязательна ссылка на оригинальный источник.  
+
+© 2025 — Учебный проект по эконометрике. Все права защищены.
