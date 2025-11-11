@@ -85,43 +85,53 @@ $$
 Кросс-секция строится на один фиксированный snapshot. Для каждого опциона рассчитываются:
 
 1. **Опорная цена базового актива**
+
 $$
-S_{\mathrm{ref}} = \frac{S_{\mathrm{OKX}}^{\mathrm{spot}} + S_{\mathrm{Binance}}^{\mathrm{spot}}}{2}.
+S_{\text{ref}} = \frac{S_{\text{OKX}}^{\text{spot}} + S_{\text{Binance}}^{\text{spot}}}{2}
 $$
 
 2. **Log-moneyness**
+
 $$
-log\_moneyness = \ln\!\left( \frac{S_{\mathrm{ref}}}{K} \right).
+log\_moneyness = \ln\!\left( \frac{S_{\text{ref}}}{K} \right)
 $$
 
 3. **Срок до экспирации**
+
 $$
-time\_to\_maturity\_years = T = \frac{\mathrm{expiry} - \mathrm{snapshot}}{365}.
+time\_to\_maturity\_years = T = \frac{\text{expiry} - \text{snapshot}}{365}
 $$
 
 4. **Разрыв IV–RV**
+
 $$
-iv\_rv\_gap = IV_{\mathrm{mark}} - RV_{\mathrm{14d}},
+iv\_rv\_gap = IV_{\text{mark}} - RV_{\text{14d}}
 $$
-где $RV_{\mathrm{14d}}$ — реализованная годовая волатильность BTCUSDT за 14 дней до snapshot, рассчитанная по данным Binance spot.
+
+где $RV_{\text{14d}}$ — реализованная годовая волатильность BTCUSDT за 14 дней до snapshot.
 
 5. **Относительный bid-ask спред**
+
 $$
-rel\_bid\_ask\_spread = \frac{ask - bid}{mid}.
+rel\_bid\_ask\_spread = \frac{ask - bid}{mid}
 $$
 
 6. **Нормированный open interest**
+
 $$
-oi\_rel = \frac{OI_i}{\max_j OI_j}.
+oi\_rel = \frac{OI_i}{\max_j OI_j}
 $$
 
 7. **Нелинейное взаимодействие глубины и срока**
+
 $$
-ttm\_x\_abs\_log\_moneyness = T \cdot \Bigl| \ln\!\Bigl( \frac{S_{\mathrm{ref}}}{K} \Bigr) \Bigr|.
+ttm\_x\_abs\_log\_moneyness = T \cdot \left| \ln\!\left( \frac{S_{\text{ref}}}{K} \right) \right|
 $$
 
-8. **Dummy-переменная типа опциона**  
+8. **Dummy-переменная типа опциона**
+
 `is_call = 1` для call-опционов, `0` — для put-опционов.
+
 
 ---
 
@@ -145,15 +155,7 @@ $$
 ### 6.1. Спецификация
 
 $$
-bsm\_error\_log_{i} = \beta_{0} +
-\beta_{1} \, log\_moneyness_{z,i} +
-\beta_{2} \, time\_to\_maturity\_years_{z,i} +
-\beta_{3} \, iv\_rv\_gap_{z,i} +
-\beta_{4} \, log\_rel\_bid\_ask\_spread_{z,i} +
-\beta_{5} \, oi\_rel_{z,i} +
-\beta_{6} \, ttm\_x\_abs\_log\_moneyness_{z,i} +
-\beta_{7} \, is\_call_{i} +
-\varepsilon_{i}.
+bsm\_error\_log_{i} = \beta_{0} + \beta_{1} \, log\_moneyness_{z,i} + \beta_{2} \, time\_to\_maturity\_years_{z,i} + \beta_{3} \, iv\_rv\_gap_{z,i} + \beta_{4} \, log\_rel\_bid\_ask\_spread_{z,i} + \beta_{5} \, oi\_rel_{z,i} + \beta_{6} \, ttm\_x\_abs\_log\_moneyness_{z,i} + \beta_{7} \, is\_call_{i} + \varepsilon_{i}
 $$
 
 
