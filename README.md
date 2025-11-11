@@ -78,47 +78,40 @@ $$
 
 ## 4. Формирование факторов
 
-Для каждого опциона рассчитывались следующие переменные:
+Кросс-секция строится на один фиксированный snapshot. Для каждого опциона рассчитываются:
 
-1. **Опорная цена базового актива**  
-$$
-S_{\text{ref}} = \frac{S_{\text{OKX}}^{\text{spot}} + S_{\text{Binance}}^{\text{spot}}}{2}
-$$
+1. **Опорная цена базового актива**
 
-2. **Log-moneyness**  
-$$
-log\_moneyness = \ln\!\left( \frac{S_{\text{ref}}}{K} \right)
-$$
+$$S_{\text{ref}}=\frac{S_{\text{OKX}}^{\text{spot}}+S_{\text{Binance}}^{\text{spot}}}{2}$$
 
-3. **Срок до экспирации**  
-$$
-time\_to\_maturity\_years = T = \frac{\text{expiry} - \text{snapshot}}{365}
-$$
+2. **Log-moneyness**
 
-4. **Разрыв IV–RV**  
-$$
-iv\_rv\_gap = IV_{\text{mark}} - RV_{\text{14d}}
-$$
+$$log\_moneyness=\ln\!\left(\frac{S_{\text{ref}}}{K}\right)$$
+
+3. **Срок до экспирации**
+
+$$time\_to\_maturity\_years=T=\frac{\text{expiry}-\text{snapshot}}{365}$$
+
+4. **Разрыв IV–RV**
+
+$$iv\_rv\_gap=IV_{\text{mark}}-RV_{\text{14d}}$$
+
 где $RV_{\text{14d}}$ — реализованная годовая волатильность BTCUSDT за 14 дней до snapshot.
 
-5. **Относительный bid-ask спред**  
-$$
-rel\_bid\_ask\_spread = \frac{ask - bid}{mid}
-$$
+5. **Относительный bid-ask спред**
 
-6. **Нормированный open interest**  
-$$
-oi\_rel = \frac{OI_i}{\max_j OI_j}
-$$
+$$rel\_bid\_ask\_spread=\frac{ask-bid}{mid}$$
 
-7. **Нелинейное взаимодействие глубины и срока**  
-$$
-ttm\_x\_abs\_log\_moneyness = T \cdot \left| \ln\!\left( \frac{S_{\text{ref}}}{K} \right) \right|
-$$
+6. **Нормированный open interest**
+
+$$oi\_rel=\frac{OI_i}{\max_j OI_j}$$
+
+7. **Нелинейное взаимодействие глубины и срока**
+
+$$ttm\_x\_abs\_log\_moneyness=T\cdot\left|\ln\!\left(\frac{S_{\text{ref}}}{K}\right)\right|$$
 
 8. **Dummy-переменная типа опциона**  
 `is_call = 1` для call-опционов, `0` — для put-опционов.
-
 ---
 
 ## 5. Разведочный анализ данных (EDA)
@@ -140,17 +133,7 @@ $$
 
 ### 6.1. Спецификация
 
-$$
-bsm\_error\_log_{i} = \beta_{0}
-+ \beta_{1} log\_moneyness_{z,i}
-+ \beta_{2} time\_to\_maturity\_years_{z,i}
-+ \beta_{3} iv\_rv\_gap_{z,i}
-+ \beta_{4} log\_rel\_bid\_ask\_spread_{z,i}
-+ \beta_{5} oi\_rel_{z,i}
-+ \beta_{6} ttm\_x\_abs\_log\_moneyness_{z,i}
-+ \beta_{7} is\_call_{i}
-+ \varepsilon_{i}
-$$
+$$bsm\_error\_log_{i}=\beta_{0}+\beta_{1}\,log\_moneyness_{z,i}+\beta_{2}\,time\_to\_maturity\_years_{z,i}+\beta_{3}\,iv\_rv\_gap_{z,i}+\beta_{4}\,log\_rel\_bid\_ask\_spread_{z,i}+\beta_{5}\,oi\_rel_{z,i}+\beta_{6}\,ttm\_x\_abs\_log\_moneyness_{z,i}+\beta_{7}\,is\_call_{i}+\varepsilon_{i}$$
 
 Где:
 - непрерывные факторы стандартизированы (z-score);  
@@ -187,14 +170,3 @@ $$
 3. Hull, J. C. (2018). *Options, Futures, and Other Derivatives.* Pearson.  
 4. Bakshi, G., Kapadia, N., & Madan, D. (2003). *Stock Return Characteristics, Skew Laws, and the Differential Pricing of Individual Equity Options.* Review of Financial Studies, 16(1), 101–143.  
 5. Christensen, B. J., & Prabhala, N. R. (1998). *The Relation between Implied and Realized Volatility.* Journal of Financial Economics, 50(2), 125–150.
-
----
-
-## 10. Лицензия и использование
-
-Данный материал подготовлен **в рамках учебного проекта по эконометрике**.  
-Все данные и вычисления использованы исключительно **в образовательных целях**.  
-Запрещено коммерческое использование, перепродажа или публикация от имени третьих лиц.  
-При цитировании или использовании отдельных фрагментов работы обязательна ссылка на оригинальный источник.  
-
-© 2025 — Учебный проект по эконометрике. Все права защищены.
