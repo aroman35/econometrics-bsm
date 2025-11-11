@@ -1,0 +1,8 @@
+,variance
+log_moneyness,2.845092
+ttm_x_abs_log_moneyness,0.326420
+is_call,0.250209
+time_to_maturity_years,0.065086
+rel_bid_ask_spread,0.029649
+iv_rv_gap,0.023365
+oi_rel,0.007441

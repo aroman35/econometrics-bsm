@@ -17,3 +17,5 @@ python-dotenv>=1.0  # загрузка ключей из .env
 
 # --- Notebook tools (опционально) ---
 jupyterlab>=4.1.0
+
+statsmodels>=0.14.0
