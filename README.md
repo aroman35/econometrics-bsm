@@ -155,7 +155,15 @@ $$
 ### 6.1. Спецификация
 
 $$
-bsm\_error\_log_{i} = \beta_{0} + \beta_{1} \, log\_moneyness_{z,i} + \beta_{2} \, time\_to\_maturity\_years_{z,i} + \beta_{3} \, iv\_rv\_gap_{z,i} + \beta_{4} \, log\_rel\_bid\_ask\_spread_{z,i} + \beta_{5} \, oi\_rel_{z,i} + \beta_{6} \, ttm\_x\_abs\_log\_moneyness_{z,i} + \beta_{7} \, is\_call_{i} + \varepsilon_{i}
+bsm\_error\_log_{i} = \beta_{0}
++ \beta_{1} \, log\_moneyness_{z,i}
++ \beta_{2} \, time\_to\_maturity\_years_{z,i}
++ \beta_{3} \, iv\_rv\_gap_{z,i}
++ \beta_{4} \, log\_rel\_bid\_ask\_spread_{z,i}
++ \beta_{5} \, oi\_rel_{z,i}
++ \beta_{6} \, ttm\_x\_abs\_log\_moneyness_{z,i}
++ \beta_{7} \, is\_call_{i}
++ \varepsilon_{i}
 $$
 
 
