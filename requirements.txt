@@ -1,0 +1,19 @@
+﻿# --- Data & Math stack ---
+pandas>=2.2.0
+numpy>=1.26.0
+
+# --- Econometrics / Statistics (для следующих шагов) ---
+statsmodels>=0.14.0
+
+# --- Visualization (на будущее, для ноутбуков) ---
+matplotlib>=3.8.0
+
+# --- Data sources ---
+tardis-dev>=2.1.0   # официальный Python SDK для Tardis.dev
+
+# --- Logging / Utilities ---
+tqdm>=4.66.0        # индикаторы прогресса, если потом добавите
+python-dotenv>=1.0  # загрузка ключей из .env
+
+# --- Notebook tools (опционально) ---
+jupyterlab>=4.1.0
